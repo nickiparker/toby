@@ -23,7 +23,7 @@ function parseResponse(response) {
       tags.push(result["name"]);
     });
   var first_five_tags = tags.slice(0, 5);
-  console.log(first_five_tags);
+  document.getElementById('tags').innerHTML = first_five_tags.toString().replace(/,/g, ', ');
 }
 
 function run(imgurl) {
