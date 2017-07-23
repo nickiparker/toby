@@ -16,6 +16,17 @@ function postImage(imgurl) {
   );
 }
 
+function postImageBase64(file_base64) {
+  app.models.predict(Clarifai.GENERAL_MODEL, {base64: file_base64}).then(
+    function(response) {
+      parseResponse(response);  
+    },
+    function(err) {
+      console.error(err);
+    }
+  );
+}
+
 function parseResponse(response) {
   var tags = [];
     var results = response["outputs"][0]["data"]["concepts"];
@@ -29,4 +40,9 @@ function parseResponse(response) {
 function run(imgurl) {
   postImage(imgurl);
   document.getElementById("image_given").src=imgurl;
+}
+
+function upload(image_url, file_base64) {
+  postImageBase64(file_base64);
+  document.getElementById("image_given").src=image_url;
 }

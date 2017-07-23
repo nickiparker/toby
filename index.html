@@ -17,7 +17,7 @@
     <div class="jumbotron">
       <h1>TOBY App</h1><p>by Nicki Parker</p>
       <h2>quickly understand what's around</h2>
-      <p>Working prototype – using an AI API to retrive object information from a image.</p>
+      <p>Working prototype – using an AI API to retrive object information from an image.</p>
     </div>
     <div class="row text-center">
       <div class="col-xs-3 col-xs-offset-3">
@@ -26,10 +26,10 @@
       <div class="col-xs-4">
         <div class="btn-group" role="group" aria-label="Basic example">
           <button onclick="run(document.getElementById('imgurl').value)" class="btn btn-primary">URL Image</button>
-          <label for="file-upload" class="btn btn-success">
+          <label for="image_upload" class="btn btn-success">
           <i class="fa fa-upload"></i> Upload Image
         </label>
-        <input type="file" accept="image/*" capture="file-upload" name="file-upload" id="file-upload">
+        <input type="file" accept="image/*" capture="image_upload" name="image_upload" id="image_upload">
         </div>
       </div>
     </div>
@@ -41,5 +41,25 @@
       </div>
     </div>
   </div>
+  <script>
+    var file_upload = document.getElementById('image_upload');
+    var image_url;
+    var file_base64;
+    var frame = document.getElementById('image_given');
+
+    file_upload.addEventListener('change', function(e) {
+      var file = e.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(fileLoadedEvent) {
+        file_base64 = fileLoadedEvent.target.result.substring(23);
+        // Do something with the image file.
+        image_url = URL.createObjectURL(file);
+        upload(image_url, file_base64);
+      }
+      
+      reader.readAsDataURL(file);
+      
+    });
+  </script>
 </body>
 </html>
