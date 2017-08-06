@@ -5,6 +5,11 @@
   <title>Toby App</title>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   <script type="text/javascript" src="keys.js"></script>
   <script type="text/javascript" src="index.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -66,18 +71,13 @@
       </div>
     </div>
     <hr>
-    <div class="row text-center">
+    <div class="row text-center" id="image-results">
       <div class="col-xs-6 col-xs-offset-3">
         <img id="image_given" class="img-responsive">
         <div id="tags" class="bg-primary"></div>
+        <input class="btn btn-default" onclick='playCaptions()' type='button' value='🔊 Play' />
       </div>
     </div>
   </div>
-  <script>
-    
-
-    
-    
-  </script>
 </body>
 </html>

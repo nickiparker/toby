@@ -38,6 +38,12 @@ function parseResponse(response) {
     });
   var first_five_tags = tags.slice(0, 5);
   document.getElementById('tags').innerHTML = first_five_tags.toString().replace(/,/g, ', ');
+  document.getElementById('image-results').style.display = "block";
+}
+
+function playCaptions() {
+  var tag_captions = $('#tags').text();
+  responsiveVoice.speak(tag_captions);
 }
 
 function run(imgurl) {
