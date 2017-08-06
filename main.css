@@ -5,3 +5,7 @@ input[type="file"] {
 #camera {
   display: none;
 }
+
+#image-results {
+  display: none;
+}
